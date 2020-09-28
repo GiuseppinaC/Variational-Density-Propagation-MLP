@@ -2,18 +2,20 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-
+np.random.seed(0)
 #%matplotlib inline
 plt.ioff()
 def f(x, sigma):
     epsilon = np.random.randn(*x.shape) * sigma
     return 10 * np.sin(2 * np.pi * (x)) + epsilon
 
-train_size = 32
+train_size = 50
 noise = 1.0
 
 X = np.linspace(-0.5, 0.5, train_size).reshape(-1, 1)
+print('training X shape', X.shape)
 y = f(X, sigma=noise)
+print('y shape',y.shape)
 y_true = f(X, sigma=0.0)
 
 fig = plt.figure(figsize=(15,7))
@@ -21,7 +23,7 @@ plt.scatter(X, y, marker='+', label='Training data')
 plt.plot(X, y_true, label='Truth')
 plt.title('Noisy training data and ground truth')
 plt.legend()
-plt.savefig('./DP_MLP_on_MNIST_Data_error.png')
+plt.savefig('./Original Data and ground truth function.png')
 plt.close(fig)
 
 
@@ -114,7 +116,7 @@ prior_params = {
 }
 
 x_in = Input(shape=(1,))
-x = DenseVariational(20, kl_weight, **prior_params, activation='relu')(x_in)
+x = DenseVariational(30, kl_weight, **prior_params, activation='relu')(x_in)
 x = DenseVariational(20, kl_weight, **prior_params, activation='relu')(x)
 x = DenseVariational(1, kl_weight, **prior_params)(x)
 
@@ -127,31 +129,39 @@ def neg_log_likelihood(y_obs, y_pred, sigma=noise):
     return K.sum(-dist.log_prob(y_obs))
 
 model.compile(loss=neg_log_likelihood, optimizer=optimizers.Adam(lr=0.08), metrics=['mse'])
-model.fit(X, y, batch_size=batch_size, epochs=1500, verbose=0)
+model.fit(X, y, batch_size=batch_size, epochs=1000, verbose=0)
 
+#fig = plt.figure(figsize=(15,7))
+#plt.plot(history.history['mean_squared_error'])
 
+plt.savefig('./metrics.png')
+plt.close(fig)
 import tqdm
 
-X_test = np.linspace(-1.5, 1.5, 1000).reshape(-1, 1)
+X_test = np.linspace(-1.5, 1.5, 100).reshape(-1, 1)
+print('testing dataset',X_test.shape)
+y_true = f(X_test, sigma=0.0)
 y_pred_list = []
 
-for i in tqdm.tqdm(range(500)):
+for i in tqdm.tqdm(range(100)):
     y_pred = model.predict(X_test)
     y_pred_list.append(y_pred)
     
 y_preds = np.concatenate(y_pred_list, axis=1)
-
+print('predictions shape', y_preds)
 y_mean = np.mean(y_preds, axis=1)
+print('mean',y_mean.shape)
 y_sigma = np.std(y_preds, axis=1)
 
 fig = plt.figure(figsize=(15,7))
 plt.plot(X_test, y_mean, 'r-', label='Predictive mean')
 plt.scatter(X, y, marker='+', label='Training data')
+plt.scatter(X_test, y_true, marker='*', label='Test data')
 plt.fill_between(X_test.ravel(), 
                  y_mean + 2 * y_sigma, 
                  y_mean - 2 * y_sigma, 
-                 alpha=0.5, label='Epistemic uncertainty')
+                 alpha=0.5, label='Uncertainty')
 plt.title('Prediction')
 plt.legend()
-plt.savefig('./DP_MLP_on_MNIST_Data_acc.png')
+plt.savefig('./prediction & uncertainty.png')
 plt.close(fig)
