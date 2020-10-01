@@ -2,17 +2,19 @@
 # from: https://github.com/christegho/bnn-mnist/blob/master/bbn.py
 
 import tensorflow as tf
-
+from numpy.random import seed as np_seed
+from tensorflow import set_random_seed as tf_seed
 tf.disable_v2_behavior()
 #tf.logging.set_verbosity(tf.logging.INFO)
 #from sklearn.datasets import fetch_mldata
 #from sklearn.cross_validation import train_test_split
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
-
+from keras.datasets import mnist
+from keras.utils import np_utils
 import numpy as np
 
-from sklearn.datasets import fetch_openml
+#from sklearn.datasets import fetch_openml
 
 
 def nonlinearity(x):
@@ -34,21 +36,39 @@ def log_categ(y, y_hat):
     return tf.reduce_sum(tf.multiply(y,tf.log(y_hat)),axis=1)
 
 if __name__ == '__main__':
-    mnist = fetch_openml("mnist_784")
+    #mnist = fetch_openml("mnist_784")
     #mnist = fetch_mldata('MNIST original')
+    #print('mnist loaded')
     # prepare data
-    N = 30000
+    N = 60000
+    # load data
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+    num_pixels = X_train.shape[1] * X_train.shape[2]
+    train_data = X_train.reshape(X_train.shape[0], num_pixels).astype('float32')
+    test_data = X_test.reshape(X_test.shape[0], num_pixels).astype('float32')
 
-    data = np.float32(mnist.data[:]) / 255.
-    idx = np.random.choice(data.shape[0], N)
-    data = data[idx]
-    target = np.int32(mnist.target[idx]).reshape(N, 1)
 
-    train_idx, test_idx = train_test_split(np.array(range(N)), test_size=0.05)
+    # normalize inputs from 0-255 to 0~2
+    train_data = train_data / 255
+    test_data = test_data / 255
+
+
+# one hot encode outputs
+    train_target = np_utils.to_categorical(y_train)
+    test_target = np_utils.to_categorical(y_test)
+    #data = np.float32(mnist.data[:]) / 255.
+    #idx = np.random.choice(data.shape[0], N)
+    #data = data[idx]
+    #target = np.int32(mnist.target[idx]).reshape(N, 1)
+    '''
+    #train_idx, test_idx = train_test_split(np.array(range(N)), test_size=0.05)
     train_data, test_data = data[train_idx], data[test_idx]
+    print('training/test data', train_data.shape, test_data.shape)
     train_target, test_target = target[train_idx], target[test_idx]
-
+    print('training/test labels', train_target.shape, test_target.shape)
     train_target = np.float32(preprocessing.OneHotEncoder(sparse=False).fit_transform(train_target))
+    print('after encoding', train_target.shape)
+    '''
 
     # inputs
     x = tf.placeholder(tf.float32, shape = None, name = 'x')
@@ -64,7 +84,7 @@ if __name__ == '__main__':
     stddev_var = 0.1
     # weights
     # L1
-    n_hidden_1 = 200
+    n_hidden_1 = 64
     W1_mu = tf.Variable(tf.truncated_normal([n_input, n_hidden_1], stddev=stddev_var))
     W1_logsigma = tf.Variable(tf.truncated_normal([n_input, n_hidden_1], mean=0.0, stddev=stddev_var)) 
     b1_mu = tf.Variable(tf.zeros([n_hidden_1])) #CHRIS can change
@@ -87,7 +107,7 @@ if __name__ == '__main__':
     #Building the objective
     log_pw, log_qw, log_likelihood = 0., 0., 0.
 
-    for _ in xrange(n_samples):
+    for _ in range(n_samples):
 
         epsilon_w1 = get_random((n_input, n_hidden_1), avg=0., std=epsilon_prior)
         epsilon_b1 = get_random((n_hidden_1,), avg=0., std=epsilon_prior)
@@ -171,7 +191,7 @@ if __name__ == '__main__':
     for n in range(n_epochs):
         errs = []
         weightVar = []
-        for i in xrange(n_train_batches):
+        for i in range(n_train_batches):
             ob = sess.run([objective, optimize, W2_logsigma, h, y, log_likelihood], feed_dict={            
                 x: train_data[i * batch_size: (i + 1) * batch_size],
                 y: train_target[i * batch_size: (i + 1) * batch_size],

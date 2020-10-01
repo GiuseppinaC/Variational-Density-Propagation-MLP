@@ -61,18 +61,18 @@ config = {
 num_pixels = X_train.shape[1] * X_train.shape[2]
 X_train = X_train.reshape(X_train.shape[0], num_pixels).astype('float32')
 X_test = X_test.reshape(X_test.shape[0], num_pixels).astype('float32')
-
+print('training and testing', X_train.shape,X_test.shape)
 
 # normalize inputs from 0-255 to 0~2
-X_train = X_train / 126
-X_test = X_test / 126
+X_train = X_train / 255
+X_test = X_test / 255
 
 
 # one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 num_classes = y_test.shape[1]
-
+print('training and testing labels', y_train.shape,y_test.shape)
 
 num_hlayers = config['num_hidden_layers']
 num_hunits = config['num_hidden_units']
@@ -177,7 +177,7 @@ for _ in range(n_samples):
         a1 = tf.nn.relu(tf.matmul(x, W1) + b1)
         #a2 = tf.nn.relu(tf.matmul(a1, W2) + b2)
         y_hat = tf.nn.softmax(tf.matmul(a1, W2) + b2)
-        tf.summary.histogram("a2",a2);tf.summary.histogram("a2",y_hat);
+        tf.summary.histogram("a1",a1);tf.summary.histogram("a1",y_hat);
         
     with tf.name_scope('sample_loss_calc'):
         sample_log_pw, sample_log_qw, sample_log_likelihood = 0., 0., 0.
@@ -212,7 +212,7 @@ for _ in range(n_samples):
         
 
 
-N=X_train.shape[0];
+N=X_train.shape[0]
 batch_size = 200 #was 128
 n_batches = N // float(batch_size)
 n_train_batches = int(X_train.shape[0] / float(batch_size))
@@ -245,7 +245,7 @@ merged_summaries=tf.summary.merge_all()
 
 # In[Prepare for launch]
 
-loss_list=[];elist=[];train_err_list=[];test_err_list=[];
+loss_list=[];elist=[];train_err_list=[];test_err_list=[]
 
 model_name = "model1"
 model_save_path = ".\model"
@@ -278,7 +278,7 @@ writer.add_graph(sess.graph)
 #make figure for plotting loss
 
 ini_epoch=len(elist)
-plt.ion();fig = plt.figure();
+plt.ion();fig = plt.figure()
 ax1 = fig.add_subplot(211);plt.title('Training Loss')
 plt.xlabel('Epoch');plt.ylabel('KL');plt.grid(True)
 ax2 = fig.add_subplot(212,sharex=ax1);plt.title('Error')
@@ -304,6 +304,8 @@ for n in range(n_epochs):
     ax2.plot(elist,train_err_list,'b--',elist,test_err_list,'r--')
     ax2.legend(['Train','Test']);
     fig.canvas.draw();plt.pause(0.05)
+plt.savefig('./bbb_plot.png')
+plt.close(fig)
     
 saver.save(sess, model_path, global_step=n)
 

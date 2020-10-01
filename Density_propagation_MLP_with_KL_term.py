@@ -201,9 +201,9 @@ class exVDPMLP(tf.keras.Model):
 
     def __init__(self, name=None):
         super(exVDPMLP, self).__init__()
-        self.linear_1 = LinearFirst(256)
+        self.linear_1 = LinearFirst(64)
         self.myrelu_1 = myReLU()
-        self.linear_2 = LinearNotFirst(2)
+        self.linear_2 = LinearNotFirst(10)
         self.mysoftma = mysoftmax()
 
     def call(self, inputs):
@@ -213,23 +213,21 @@ class exVDPMLP(tf.keras.Model):
         outputs, Sigma = self.mysoftma(m, s)        
         return outputs, Sigma
 
-def main_function( input_dim = 10, units = 256, output_size = 2 , batch_size = 200, epochs = 20, lr = 0.001, 
-         Random_noise=True, gaussain_noise_std=1, Training = False):
+def main_function( input_dim = 784, units = 64, output_size = 10 , batch_size = 200, epochs = 20, lr = 0.001, 
+         Random_noise=False, gaussain_noise_std=1, Training = True):
     
 
-    PATH = './saved_models/DP_MLP_epoch_{}/'.format(epochs)
-    X = np.load('./x_train.npy')
-    y = np.load('./y_train.npy')
-    x_train = X[0:120000,:]
-    y_train = y[0:120000]
-    x_test = X[120000:133600,:]
-    y_test = y[120000:133600]   
+    PATH = './saved_models/eVI_MLP_epoch_{}/'.format(epochs)
+    (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()   
+    
+    x_train = x_train.reshape(x_train.shape[0], -1) / 255  #size (60000, 784) and (60000,)
+    x_test = x_test.reshape(x_test.shape[0], -1) / 255 # (10000, 784)
 
-    one_hot_y_train = tf.one_hot(y_train.astype(np.float32), depth=2)
-    one_hot_y_test = tf.one_hot(y_test.astype(np.float32), depth=2) 
+    one_hot_y_train = tf.one_hot(y_train.astype(np.float32), depth=10)
+    one_hot_y_test = tf.one_hot(y_test.astype(np.float32), depth=10) 
 
-    tr_dataset = tf.data.Dataset.from_tensor_slices((x_train, one_hot_y_train)).batch(batch_size)
-    val_dataset = tf.data.Dataset.from_tensor_slices((x_test, one_hot_y_test)).batch(batch_size)
+    tr_dataset = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(batch_size)  #size [batch size, image*image]
+    val_dataset = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(batch_size)
 
         
     # Cutom Trianing Loop with Graph
@@ -291,21 +289,21 @@ def main_function( input_dim = 10, units = 256, output_size = 2 , batch_size = 2
             fig = plt.figure(figsize=(15,7))
             plt.plot(train_acc, 'b', label='Training acc')            
             plt.ylim(0, 1.1)
-            plt.title("Density Propagation MLP on MNIST Data")
+            plt.title("eVI MLP on MNIST Data")
             plt.xlabel("Epochs")
             plt.ylabel("Accuracy")
             plt.legend(loc='lower right')
-            plt.savefig(PATH + 'DP_MLP_on_MNIST_Data_acc.png')
+            plt.savefig(PATH + 'eVI_MLP_on_MNIST_Data_acc.png')
             plt.close(fig)
     
     
             fig = plt.figure(figsize=(15,7))
             plt.plot(train_err, 'b', label='Training error')            
-            plt.title("Density Propagation MLP on MNIST Data")
+            plt.title("eVI MLP on MNIST Data")
             plt.xlabel("Epochs")
             plt.ylabel("Error")
             plt.legend(loc='lower right')
-            plt.savefig(PATH + 'DP_MLP_on_MNIST_Data_error.png')
+            plt.savefig(PATH + 'eVI_MLP_on_MNIST_Data_error.png')
             plt.close(fig)
         f = open(PATH + 'training_validation_acc_error.pkl', 'wb')         
         pickle.dump([train_acc, train_err], f)                                                   
@@ -333,7 +331,7 @@ def main_function( input_dim = 10, units = 256, output_size = 2 , batch_size = 2
         
     else:
         test_path = 'test_results_random_noise_{}/'.format(gaussain_noise_std)
-        mlp_model.load_weights(PATH + 'DP_MLP_model')
+        mlp_model.load_weights(PATH + 'eVI_MLP_model')
         test_no_steps = 0
         err_test = 0
         acc_test = 0
