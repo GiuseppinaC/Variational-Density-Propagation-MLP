@@ -45,7 +45,8 @@ def likelihood(y,y_pred):
     N=y_pred.shape[0]
     y=np.ones([N, 1, 1]) * y
     residuals = y_pred - y
-    like = -np.sum((residuals ** 2),axis=-2) / (2 * m)
+    like = np.sum((residuals ** 2),axis=-2) / (2 * m)
+    print(like.shape)
     return like
 
 def feed_forward(X, params):
@@ -74,16 +75,12 @@ def forward_1(X,Y,N,init_sigma, params):
     partb =  np.random.multivariate_normal(partb, init_sigma*np.eye(hidden), size=N)
     part_layer1["pf_b1_prior"]= partb.reshape([N,1,hidden])
 
-    X=np.ones([N, 1, 1]) * X
+    #X=np.ones([N, 1, 1]) * X
     Z1 = np.matmul(X, part_layer1["pf_W1_prior"]) + part_layer1["pf_b1_prior"]
     A1 = relu(Z1)
-    W2=np.ones([N, 1, 1]) * params["W2"]
-    b2=np.ones([N, 1, 1]) * params["b2"]
-    Z2 = np.matmul( A1,W2 ) + b2
+    Z2 = np.matmul( A1,params["W2"] ) +params["b2"]
     A2 = relu(Z2)
-    W3=np.ones([N, 1, 1]) * params["W3"]
-    b3=np.ones([N, 1, 1]) * params["b3"]
-    y_pred= np.matmul( A2, W3) + b3 #dim=[N, m, 1]
+    y_pred= np.matmul( A2, params["W3"]) + params["b3"] #dim=[N, m, 1]
     like_1["original"]= likelihood(Y, y_pred) #shape Y=[m,1] lik=[N,1]
     like_1["new"], indeces =resample_like(like_1["original"],N)
     part_layer1["pf_W1"]= np.take(partW,indeces,axis=0)  # shape=[N,feat*hidd]
@@ -144,7 +141,7 @@ def forward_3(X,Y,N,init_sigma, params):
 
 def back_propagate(X, Y, params, cache):
     m=Y.shape[0]
-    dY=(cache["Y_pred"] - Y)/m
+    dY=(cache["Y_pred"] - Y)/m #SHAPE [100,1]
     dW3 = (1./m) * np.matmul(cache["A2"].T,dY)
     db3 = (1./m) * np.sum(dY, axis=0, keepdims=True)
     dA2 = np.matmul( dY, params["W3"].T)
@@ -168,7 +165,7 @@ def f(x, sigma):
     epsilon = np.random.randn(*x.shape) * sigma
     return 10 * np.sin(2 * np.pi * (x)) + epsilon
 
-train_size = 1000
+train_size = 100
 noise = 1.0
 
 X = np.linspace(-0.5, 0.5, train_size).reshape(-1, 1) # size=[#points,1]
@@ -179,13 +176,13 @@ y_true = f(X, sigma=0.0)
 n_x = X.shape[1] # input features size
 n_h1 = 30 # hideen layer 1
 n_h2 = 20 # hideen layer 2
-learning_rate = 0.08
+learning_rate = 0.1
 beta = .9
 # particles for each layer
 N1=100
 N2=100
 N3=100
-sigma=0.01
+sigma=0.1
 # where to save files:
 date="09_28"
 folder='Results_PF/{}'.format(date)
@@ -227,7 +224,7 @@ loss_train_history=[]
 RMSE_train_history =[]
 
 # train
-for i in range(1000):
+for i in range(100):
 
     part_layer1, like_1= forward_1(X,Y,N1,sigma, params)
     W1= np.average(part_layer1["pf_W1"], weights=like_1["new"], axis=0)    #dimention= [n_hidden*num_features,]

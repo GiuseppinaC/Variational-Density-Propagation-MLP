@@ -2,14 +2,17 @@
 # from: https://github.com/christegho/bnn-mnist/blob/master/bbn.py
 
 import tensorflow as tf
-tf.logging.set_verbosity(tf.logging.INFO)
-from sklearn.datasets import fetch_mldata
+
+tf.disable_v2_behavior()
+#tf.logging.set_verbosity(tf.logging.INFO)
+#from sklearn.datasets import fetch_mldata
 #from sklearn.cross_validation import train_test_split
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
 import numpy as np
 
+from sklearn.datasets import fetch_openml
 
 
 def nonlinearity(x):
@@ -31,7 +34,8 @@ def log_categ(y, y_hat):
     return tf.reduce_sum(tf.multiply(y,tf.log(y_hat)),axis=1)
 
 if __name__ == '__main__':
-    mnist = fetch_mldata('MNIST original')
+    mnist = fetch_openml("mnist_784")
+    #mnist = fetch_mldata('MNIST original')
     # prepare data
     N = 30000
 
