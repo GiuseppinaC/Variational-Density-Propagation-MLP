@@ -90,9 +90,10 @@ class LinearFirst(keras.layers.Layer):
             shape=(self.units,), initializer=tf.random_uniform_initializer(minval= -12., maxval=-10., seed=None),
             trainable=True
         )
-    def call(self, inputs):
+    def call(self, inputs): 
         # Mean
         #print(self.w_mu.shape)
+            
         mu_out = tf.matmul(inputs, self.w_mu) + self.b_mu                         # Mean of the output
         # Varinace
         W_Sigma = tf.linalg.diag(tf.math.log(1. + tf.math.exp(self.w_sigma)))                                        
@@ -185,7 +186,7 @@ class mysoftmax(keras.layers.Layer):
         return mu_out, Sigma_out
 
 
-def nll_gaussian(y_test, y_pred_mean, y_pred_sd, num_labels=2, batch_size=200):
+def nll_gaussian(y_test, y_pred_mean, y_pred_sd, num_labels=10, batch_size=200):
     NS = tf.linalg.diag(tf.constant(1e-3, shape=[batch_size, num_labels]))
     I = tf.eye(num_labels, batch_shape=[batch_size])
     y_pred_sd_ns = y_pred_sd + NS
@@ -201,7 +202,7 @@ class exVDPMLP(tf.keras.Model):
 
     def __init__(self, name=None):
         super(exVDPMLP, self).__init__()
-        self.linear_1 = LinearFirst(64)
+        self.linear_1 = LinearFirst(200)
         self.myrelu_1 = myReLU()
         self.linear_2 = LinearNotFirst(10)
         self.mysoftma = mysoftmax()
@@ -213,30 +214,34 @@ class exVDPMLP(tf.keras.Model):
         outputs, Sigma = self.mysoftma(m, s)        
         return outputs, Sigma
 
-def main_function( input_dim = 784, units = 64, output_size = 10 , batch_size = 200, epochs = 20, lr = 0.001, 
+def main_function( input_dim = 784, units = 200, output_size = 10 , batch_size = 200, epochs = 100, lr = 0.1, 
          Random_noise=False, gaussain_noise_std=1, Training = True):
     
 
     PATH = './saved_models/eVI_MLP_epoch_{}/'.format(epochs)
     (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()   
-    
+
     x_train = x_train.reshape(x_train.shape[0], -1) / 255  #size (60000, 784) and (60000,)
     x_test = x_test.reshape(x_test.shape[0], -1) / 255 # (10000, 784)
-
+    '''
     one_hot_y_train = tf.one_hot(y_train.astype(np.float32), depth=10)
     one_hot_y_test = tf.one_hot(y_test.astype(np.float32), depth=10) 
-
+    '''
+    y_train = tf.one_hot(y_train.astype(np.float32), depth=10)
+    y_test = tf.one_hot(y_test.astype(np.float32), depth=10) 
+    
     tr_dataset = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(batch_size)  #size [batch size, image*image]
     val_dataset = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(batch_size)
 
         
     # Cutom Trianing Loop with Graph
     mlp_model = exVDPMLP(name='mlp')    
-    optimizer = tf.keras.optimizers.Adam(learning_rate=lr)
+    optimizer = tf.keras.optimizers.SGD(learning_rate=lr)
     
     @tf.function  # Make it fast.
     def train_on_batch(x, y):
         with tf.GradientTape() as tape:
+            #x=tf.dtypes.cast(x, tf.float32)
             logits, sigma = mlp_model(x)      
             loss_final = nll_gaussian(y, logits,  tf.clip_by_value(t=sigma, clip_value_min=tf.constant(-1e+10),
                                        clip_value_max=tf.constant(1e+10)), output_size , batch_size)
@@ -263,6 +268,8 @@ def main_function( input_dim = 784, units = 64, output_size = 10 , batch_size = 
           tr_no_steps = 0          
           #Training
           for step, (x, y) in enumerate(tr_dataset):
+              #x=tf.dtypes.cast(x, tf.float32)
+            
               update_progress(step / int(x_train.shape[0] / (batch_size)) )  
               loss, logits = train_on_batch(x, y)
               err1+= loss
@@ -340,6 +347,7 @@ def main_function( input_dim = 784, units = 64, output_size = 10 , batch_size = 
         logits_ = np.zeros([int(x_test.shape[0] / (batch_size)), batch_size, output_size])
         sigma_ = np.zeros([int(x_test.shape[0] / (batch_size)), batch_size, output_size, output_size])
         for step, (x, y) in enumerate(val_dataset):
+
           update_progress(step / int(x_test.shape[0] / (batch_size)) ) 
           true_x[test_no_steps, :, :] = x
           true_y[test_no_steps, :, :] = y
@@ -347,7 +355,8 @@ def main_function( input_dim = 784, units = 64, output_size = 10 , batch_size = 
               noise = tf.random.normal(shape = [batch_size, input_dim], mean = 0.0, stddev = gaussain_noise_std, dtype = x.dtype ) 
               x = x +  noise 
 
-          loss_layers = sum(mlp_model.losses)       
+          loss_layers = sum(mlp_model.losses) 
+          #x=tf.dtypes.cast(x, tf.float32)      
           logits, sigma = mlp_model(x)  
           logits_[test_no_steps,:,:] =logits
           sigma_[test_no_steps, :, :, :]= sigma
