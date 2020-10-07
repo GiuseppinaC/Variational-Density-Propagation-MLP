@@ -41,7 +41,7 @@ class Args():
         self.batch_size = 100
         self.lr         = 0.001
         self.num_labels = 10
-        self.gaussian_noise=0.5
+        self.gaussian_noise=0
         self.momentum = 0.9
 
 if __name__ == '__main__':
@@ -61,11 +61,13 @@ if __name__ == '__main__':
     num_labels = args.num_labels
     g_noise=args.gaussian_noise
     mom=args.momentum
+    sigma_noise=np.sqrt(g_noise)
 
     print('Hyper Parameters')
     print('Learning Rate: ' + str(lr))
     print('Epochs: ' + str(epochs))
     print('Batch Size: ' + str(batch_size))
+    print('Gaussian noise std: ' + str(sigma_noise))
     print(' ')
 
     if cuda:
@@ -167,7 +169,13 @@ if __name__ == '__main__':
         model_path = './models/' + start_date_str + '/' + start_time_str + '/'
 
         torch.save(eVINet.state_dict(), model_path + 'model.pkl')
-
+        fig = plt.figure()
+        plt.plot(train_counter, train_acc, color='blue')
+        plt.title('model accuracy_final value: {}'.format(epoch_acc ))
+        plt.legend(['Train Loss'], loc='upper right')
+        plt.xlabel('epochs')
+        plt.ylabel(' loss')
+        fig.savefig( model_path  +'/training.png')
     else:
         model_path ='./models/10_04_20/17_30/model.pkl'
         eVINet.load_state_dict(torch.load(model_path))
@@ -193,7 +201,7 @@ if __name__ == '__main__':
         for idx, (data, targets) in enumerate(test_loader):
             
             data, targets = data.to(device), targets.to(device)
-            data =data + torch.randn(data.size()) * g_noise #adding noise
+            data =data + torch.randn(data.size()) * sigma_noise #adding noise
             print('data shape', data.shape)
             mu_y, sigma_y = eVINet.forward(data)
             mu_y_out[idx, :] = mu_y.detach().cpu().numpy()
@@ -214,7 +222,7 @@ if __name__ == '__main__':
             plt.title("Ground Truth: {}".format(targets[i]))
             plt.xticks([])
             plt.yticks([])
-        fig.savefig('testing_images.png')
+        fig.savefig(splits +'/testing_images.png')
 
         np.save(splits + '/mu_values_noise_{}.npy'.format(g_noise), mu_y_out)
         np.save(splits + '/sigma_values.npy_noise_{}'.format(g_noise), sigma_y_out)
@@ -227,13 +235,6 @@ if __name__ == '__main__':
                          transform=transforms.Compose([
                              transforms.ToTensor(),
                          ])))
-
-        #fig = plt.figure()
-        #plt.plot(train_counter, train_acc, color='blue')
-        #plt.legend(['Train Loss'], loc='upper right')
-        #plt.xlabel('epochs')
-        #plt.ylabel(' loss')
-        #fig.savefig('training.png')
 
         eVINet.eval()
         correct = 0
@@ -257,4 +258,20 @@ if __name__ == '__main__':
         np.save(splits + '/sigma_values.npy', sigma_y_out)
         np.save(splits + '/predicted_values.npy', predicted_out)
 
+
+    textfile = open( model_path + 'Related_hyperparameters.txt','w')    
+    textfile.write(' Batch Size : ' +str(batch_size))
+    textfile.write('\n No Hidden Nodes : 64')
+    textfile.write('\n Output Size : ' +str(num_labels))
+    textfile.write('\n No of epochs : ' +str(epochs))
+    textfile.write('\n Learning rate : ' +str(lr))     
+    textfile.write('\n Momentum term : ' +str(mom))       
+    textfile.write("\n---------------------------------")
+    textfile.write("\n Averaged Test Accuracy : "+ str( test_acc.numpy()))
+    textfile.write("\n Averaged Test error : "+ str(test_error.numpy() ))            
+    textfile.write("\n---------------------------------")
+    if Random_noise:
+        textfile.write('\n Random Noise std: '+ str(sigma_noise ))              
+    textfile.write("\n---------------------------------")    
+    textfile.close()
     
