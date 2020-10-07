@@ -51,8 +51,10 @@ if __name__ == '__main__':
 
     if args.loadModel == '':
         model_path = False
+        training = 't'
     else:
         model_path = True
+        training = 'f'
 
     lr = args.lr
     cuda = args.cuda
@@ -267,11 +269,18 @@ if __name__ == '__main__':
     textfile.write('\n Learning rate : ' +str(lr))     
     textfile.write('\n Momentum term : ' +str(mom))       
     textfile.write("\n---------------------------------")
-    textfile.write("\n Averaged Test Accuracy : "+ str( test_acc.numpy()))
-    textfile.write("\n Averaged Test error : "+ str(test_error.numpy() ))            
-    textfile.write("\n---------------------------------")
-    if Random_noise:
-        textfile.write('\n Random Noise std: '+ str(sigma_noise ))              
+    
+    if training == 't':
+        textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
+        textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) ))   
+    else:         
+        if g_noise>0:
+            textfile.write("\n---------------------------------")
+            textfile.write('\n Random Noise std: '+ str(sigma_noise )) 
+            textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) )) 
+        else:
+            textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) )) 
+
     textfile.write("\n---------------------------------")    
     textfile.close()
     
