@@ -224,11 +224,8 @@ if __name__ == '__main__':
             plt.title("Ground Truth: {}".format(targets[i]))
             plt.xticks([])
             plt.yticks([])
-        fig.savefig(splits +'/testing_images.png')
+        fig.savefig(splits +'testing_images.png')
 
-        np.save(splits + '/mu_values_noise_{}.npy'.format(g_noise), mu_y_out)
-        np.save(splits + '/sigma_values.npy_noise_{}'.format(g_noise), sigma_y_out)
-        np.save(splits + '/predicted_values.npy_noise_{}'.format(g_noise), predicted_out)
     
 
     else:
@@ -257,34 +254,35 @@ if __name__ == '__main__':
             if ((idx + 1) % 100 == 0):
                 print(str(idx + 1) + ' of 10000 test images: ' + str(round(100 * correct / total, 5)) + '%')
 
-        np.save(splits + '/mu_values.npy', mu_y_out)
-        np.save(splits + '/sigma_values.npy', sigma_y_out)
-        np.save(splits + '/predicted_values.npy', predicted_out)
+        
+    if not os.path.exists(model_path + 'Test_with_{}_noise'.format(sigma_noise)):
+        os.makedirs(model_path + 'Test_with_{}_noise'.format(sigma_noise))
+        model_path = model_path + 'Test_with_{}_noise'.format(sigma_noise)
 
+    np.save(model_path+ './mu_values_noise_{}.npy'.format(g_noise), mu_y_out)
+    np.save(model_path+ './sigma_values.npy_noise_{}'.format(g_noise), sigma_y_out)
+    np.save(model_path + './predicted_values.npy_noise_{}'.format(g_noise), predicted_out)    
         
-        
-        textfile = open( model_path + 'Related_hyperparameters.txt','w')    
-        textfile.write(' Batch Size : ' +str(batch_size))
-        textfile.write('\n No Hidden Nodes : 64')
-        textfile.write('\n Output Size : ' +str(num_labels))
-        textfile.write('\n No of epochs : ' +str(epochs))
-        textfile.write('\n Learning rate : ' +str(lr))     
-        textfile.write('\n Momentum term : ' +str(mom))       
-        textfile.write("\n---------------------------------")
+    textfile = open( model_path + './Related_hyperparameters.txt','w')    
+    textfile.write(' Batch Size : ' +str(batch_size))
+    textfile.write('\n No Hidden Nodes : 64')
+    textfile.write('\n Output Size : ' +str(num_labels))
+    textfile.write('\n No of epochs : ' +str(epochs))
+    textfile.write('\n Learning rate : ' +str(lr))     
+    textfile.write('\n Momentum term : ' +str(mom))       
+    textfile.write("\n---------------------------------")
     
-        if args.loadModel == '':
-            textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
-            textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
-            textfile.write("\n---------------------------------")
-            textfile.write('\n Random Noise std: '+ str(sigma_noise )) 
-        else:
-            if not os.path.exists(model_path + '/Test_with_{}_noise'.format(sigma_noise)):
-                os.makedirs(model_path + '/Test_with_{}_noise'.format(sigma_noise))
-            textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
-            textfile.write("\n---------------------------------")
-            textfile.write('\n Random Noise std: '+ str(sigma_noise ))
+    if args.loadModel == '':
+        textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
+        textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
+        textfile.write("\n---------------------------------")
+        textfile.write('\n Random Noise std: '+ str(sigma_noise )) 
+    else:
+        textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
+        textfile.write("\n---------------------------------")
+        textfile.write('\n Random Noise std: '+ str(sigma_noise ))
         
-        textfile.write("\n---------------------------------")    
-        textfile.close()
+    textfile.write("\n---------------------------------")    
+    textfile.close()
 
     

@@ -1,7 +1,7 @@
 Unable to init server: Could not connect: Connection refused
 Unable to init server: Could not connect: Connection refused
 
-(Main.py:2247506): Gdk-CRITICAL **: 18:29:07.679: gdk_cursor_new_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+(Main.py:2250608): Gdk-CRITICAL **: 18:49:19.932: gdk_cursor_new_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
 Hyper Parameters
 Learning Rate: 0.001
 Epochs: 10
