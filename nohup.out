@@ -1,12 +1,12 @@
 Unable to init server: Could not connect: Connection refused
 Unable to init server: Could not connect: Connection refused
 
-(Main.py:2253276): Gdk-CRITICAL **: 19:06:04.886: gdk_cursor_new_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+(Main.py:2255371): Gdk-CRITICAL **: 19:18:07.117: gdk_cursor_new_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
 Hyper Parameters
 Learning Rate: 0.001
 Epochs: 10
 Batch Size: 100
-Gaussian noise std: 0.31622776601683794
+Gaussian noise std: 0.7071067811865476
  
 Using Cuda
  
@@ -111,7 +111,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-100 of 10000 test images: 91.0%
+100 of 10000 test images: 64.0%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -212,7 +212,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-200 of 10000 test images: 90.0%
+200 of 10000 test images: 69.5%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -313,7 +313,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-300 of 10000 test images: 90.33333%
+300 of 10000 test images: 70.0%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -414,7 +414,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-400 of 10000 test images: 90.5%
+400 of 10000 test images: 70.0%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -515,7 +515,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-500 of 10000 test images: 88.4%
+500 of 10000 test images: 68.8%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -616,7 +616,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-600 of 10000 test images: 87.5%
+600 of 10000 test images: 69.16667%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -717,7 +717,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-700 of 10000 test images: 87.85714%
+700 of 10000 test images: 69.57143%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -818,7 +818,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-800 of 10000 test images: 88.5%
+800 of 10000 test images: 70.375%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -919,7 +919,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-900 of 10000 test images: 88.77778%
+900 of 10000 test images: 70.33333%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1020,7 +1020,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1000 of 10000 test images: 88.9%
+1000 of 10000 test images: 70.3%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1121,7 +1121,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1100 of 10000 test images: 89.18182%
+1100 of 10000 test images: 69.18182%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1222,7 +1222,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1200 of 10000 test images: 89.16667%
+1200 of 10000 test images: 69.16667%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1323,7 +1323,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1300 of 10000 test images: 88.76923%
+1300 of 10000 test images: 68.61538%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1424,7 +1424,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1400 of 10000 test images: 88.64286%
+1400 of 10000 test images: 68.92857%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1525,7 +1525,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1500 of 10000 test images: 88.6%
+1500 of 10000 test images: 68.93333%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1626,7 +1626,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1600 of 10000 test images: 88.625%
+1600 of 10000 test images: 68.6875%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1727,7 +1727,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1700 of 10000 test images: 88.64706%
+1700 of 10000 test images: 68.64706%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1828,7 +1828,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1800 of 10000 test images: 88.5%
+1800 of 10000 test images: 68.11111%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -1929,7 +1929,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-1900 of 10000 test images: 88.63158%
+1900 of 10000 test images: 67.89474%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2030,7 +2030,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2000 of 10000 test images: 88.45%
+2000 of 10000 test images: 67.95%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2131,7 +2131,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2100 of 10000 test images: 88.33333%
+2100 of 10000 test images: 68.0%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2232,7 +2232,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2200 of 10000 test images: 88.36364%
+2200 of 10000 test images: 67.72727%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2333,7 +2333,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2300 of 10000 test images: 88.30435%
+2300 of 10000 test images: 67.86957%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2434,7 +2434,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2400 of 10000 test images: 88.41667%
+2400 of 10000 test images: 67.95833%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2535,7 +2535,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2500 of 10000 test images: 88.2%
+2500 of 10000 test images: 67.88%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2636,7 +2636,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2600 of 10000 test images: 88.23077%
+2600 of 10000 test images: 67.76923%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2737,7 +2737,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2700 of 10000 test images: 88.2963%
+2700 of 10000 test images: 67.92593%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2838,7 +2838,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2800 of 10000 test images: 88.35714%
+2800 of 10000 test images: 68.14286%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -2939,7 +2939,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-2900 of 10000 test images: 88.41379%
+2900 of 10000 test images: 67.96552%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3040,7 +3040,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3000 of 10000 test images: 88.36667%
+3000 of 10000 test images: 67.56667%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3141,7 +3141,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3100 of 10000 test images: 88.48387%
+3100 of 10000 test images: 67.64516%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3242,7 +3242,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3200 of 10000 test images: 88.5%
+3200 of 10000 test images: 67.78125%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3343,7 +3343,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3300 of 10000 test images: 88.60606%
+3300 of 10000 test images: 67.84848%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3444,7 +3444,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3400 of 10000 test images: 88.67647%
+3400 of 10000 test images: 68.05882%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3545,7 +3545,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3500 of 10000 test images: 88.91429%
+3500 of 10000 test images: 68.28571%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3646,7 +3646,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3600 of 10000 test images: 88.91667%
+3600 of 10000 test images: 68.11111%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3747,7 +3747,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3700 of 10000 test images: 88.91892%
+3700 of 10000 test images: 68.02703%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3848,7 +3848,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3800 of 10000 test images: 88.76316%
+3800 of 10000 test images: 68.05263%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -3949,7 +3949,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-3900 of 10000 test images: 88.71795%
+3900 of 10000 test images: 67.89744%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4050,7 +4050,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4000 of 10000 test images: 88.65%
+4000 of 10000 test images: 67.975%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4151,7 +4151,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4100 of 10000 test images: 88.68293%
+4100 of 10000 test images: 67.92683%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4252,7 +4252,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4200 of 10000 test images: 88.71429%
+4200 of 10000 test images: 67.90476%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4353,7 +4353,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4300 of 10000 test images: 88.5814%
+4300 of 10000 test images: 67.86047%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4454,7 +4454,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4400 of 10000 test images: 88.59091%
+4400 of 10000 test images: 67.63636%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4555,7 +4555,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4500 of 10000 test images: 88.71111%
+4500 of 10000 test images: 67.48889%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4656,7 +4656,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4600 of 10000 test images: 88.65217%
+4600 of 10000 test images: 67.54348%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4757,7 +4757,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4700 of 10000 test images: 88.70213%
+4700 of 10000 test images: 67.55319%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4858,7 +4858,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4800 of 10000 test images: 88.66667%
+4800 of 10000 test images: 67.64583%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -4959,7 +4959,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-4900 of 10000 test images: 88.63265%
+4900 of 10000 test images: 67.5102%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5060,7 +5060,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5000 of 10000 test images: 88.7%
+5000 of 10000 test images: 67.52%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5161,7 +5161,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5100 of 10000 test images: 88.78431%
+5100 of 10000 test images: 67.68627%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5262,7 +5262,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5200 of 10000 test images: 88.90385%
+5200 of 10000 test images: 67.90385%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5363,7 +5363,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5300 of 10000 test images: 89.01887%
+5300 of 10000 test images: 68.09434%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5464,7 +5464,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5400 of 10000 test images: 89.18519%
+5400 of 10000 test images: 68.37037%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5565,7 +5565,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5500 of 10000 test images: 89.34545%
+5500 of 10000 test images: 68.63636%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5666,7 +5666,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5600 of 10000 test images: 89.44643%
+5600 of 10000 test images: 68.76786%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5767,7 +5767,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5700 of 10000 test images: 89.45614%
+5700 of 10000 test images: 68.92982%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5868,7 +5868,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5800 of 10000 test images: 89.5%
+5800 of 10000 test images: 69.0%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -5969,7 +5969,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-5900 of 10000 test images: 89.61017%
+5900 of 10000 test images: 69.0339%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6070,7 +6070,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6000 of 10000 test images: 89.6%
+6000 of 10000 test images: 69.11667%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6171,7 +6171,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6100 of 10000 test images: 89.54098%
+6100 of 10000 test images: 69.09836%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6272,7 +6272,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6200 of 10000 test images: 89.53226%
+6200 of 10000 test images: 69.29032%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6373,7 +6373,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6300 of 10000 test images: 89.65079%
+6300 of 10000 test images: 69.60317%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6474,7 +6474,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6400 of 10000 test images: 89.78125%
+6400 of 10000 test images: 69.78125%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6575,7 +6575,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6500 of 10000 test images: 89.86154%
+6500 of 10000 test images: 70.09231%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6676,7 +6676,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6600 of 10000 test images: 89.71212%
+6600 of 10000 test images: 70.04545%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6777,7 +6777,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6700 of 10000 test images: 89.61194%
+6700 of 10000 test images: 69.9403%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6878,7 +6878,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6800 of 10000 test images: 89.51471%
+6800 of 10000 test images: 69.91176%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -6979,7 +6979,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-6900 of 10000 test images: 89.5942%
+6900 of 10000 test images: 70.08696%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7080,7 +7080,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7000 of 10000 test images: 89.65714%
+7000 of 10000 test images: 70.25714%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7181,7 +7181,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7100 of 10000 test images: 89.74648%
+7100 of 10000 test images: 70.3662%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7282,7 +7282,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7200 of 10000 test images: 89.86111%
+7200 of 10000 test images: 70.48611%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7383,7 +7383,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7300 of 10000 test images: 89.89041%
+7300 of 10000 test images: 70.53425%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7484,7 +7484,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7400 of 10000 test images: 90.01351%
+7400 of 10000 test images: 70.72973%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7585,7 +7585,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7500 of 10000 test images: 90.0%
+7500 of 10000 test images: 70.73333%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7686,7 +7686,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7600 of 10000 test images: 90.06579%
+7600 of 10000 test images: 70.68421%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7787,7 +7787,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7700 of 10000 test images: 90.14286%
+7700 of 10000 test images: 70.75325%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7888,7 +7888,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7800 of 10000 test images: 90.20513%
+7800 of 10000 test images: 70.85897%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -7989,7 +7989,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-7900 of 10000 test images: 90.13924%
+7900 of 10000 test images: 70.89873%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8090,7 +8090,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8000 of 10000 test images: 90.1125%
+8000 of 10000 test images: 71.0375%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8191,7 +8191,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8100 of 10000 test images: 90.11111%
+8100 of 10000 test images: 71.1358%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8292,7 +8292,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8200 of 10000 test images: 90.08537%
+8200 of 10000 test images: 71.14634%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8393,7 +8393,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8300 of 10000 test images: 90.06024%
+8300 of 10000 test images: 71.10843%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8494,7 +8494,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8400 of 10000 test images: 90.03571%
+8400 of 10000 test images: 71.27381%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8595,7 +8595,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8500 of 10000 test images: 90.10588%
+8500 of 10000 test images: 71.43529%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8696,7 +8696,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8600 of 10000 test images: 90.15116%
+8600 of 10000 test images: 71.5%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8797,7 +8797,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8700 of 10000 test images: 90.25287%
+8700 of 10000 test images: 71.57471%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8898,7 +8898,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8800 of 10000 test images: 90.34091%
+8800 of 10000 test images: 71.72727%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -8999,7 +8999,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-8900 of 10000 test images: 90.41573%
+8900 of 10000 test images: 71.85393%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9100,7 +9100,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9000 of 10000 test images: 90.48889%
+9000 of 10000 test images: 72.01111%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9201,7 +9201,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9100 of 10000 test images: 90.43956%
+9100 of 10000 test images: 72.03297%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9302,7 +9302,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9200 of 10000 test images: 90.48913%
+9200 of 10000 test images: 72.11957%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9403,7 +9403,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9300 of 10000 test images: 90.52688%
+9300 of 10000 test images: 72.22581%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9504,7 +9504,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9400 of 10000 test images: 90.60638%
+9400 of 10000 test images: 72.32979%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9605,7 +9605,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9500 of 10000 test images: 90.66316%
+9500 of 10000 test images: 72.43158%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9706,7 +9706,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9600 of 10000 test images: 90.65625%
+9600 of 10000 test images: 72.42708%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9807,7 +9807,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9700 of 10000 test images: 90.64948%
+9700 of 10000 test images: 72.42268%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -9908,7 +9908,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9800 of 10000 test images: 90.5%
+9800 of 10000 test images: 72.36735%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -10009,7 +10009,7 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-9900 of 10000 test images: 90.43434%
+9900 of 10000 test images: 72.32323%
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
@@ -10110,8 +10110,8 @@ data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
 data shape torch.Size([1, 1, 28, 28])
-10000 of 10000 test images: 90.4%
+10000 of 10000 test images: 72.27%
 Traceback (most recent call last):
-  File "Main.py", line 266, in <module>
-    textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
-NameError: name 'epoch_acc' is not defined
+  File "Main.py", line 283, in <module>
+    plt.imshow(data[i][0], cmap='gray', interpolation='none')
+IndexError: index 1 is out of bounds for axis 0 with size 1

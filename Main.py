@@ -35,13 +35,13 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 class Args():
     def __init__(self):
-        self.loadModel = ''
+        self.loadModel = 'y'
         self.cuda = True
         self.epochs     = 10
         self.batch_size = 100
         self.lr         = 0.001
         self.num_labels = 10
-        self.gaussian_noise=0.1
+        self.gaussian_noise=0.5
         self.momentum = 0.9
 
 if __name__ == '__main__':
@@ -245,13 +245,13 @@ if __name__ == '__main__':
                 print(str(idx + 1) + ' of 10000 test images: ' + str(round(100 * correct / total, 5)) + '%')
 
         
-    if not os.path.exists(model_path + 'Test_with_{}_noise'.format(sigma_noise)):
-        os.makedirs(model_path + 'Test_with_{}_noise'.format(sigma_noise))
-        model_path = model_path + 'Test_with_{}_noise'.format(sigma_noise) +'/'
+    if not os.path.exists(model_path + 'Test_with_{}_noise'.format(g_noise)):
+        os.makedirs(model_path + 'Test_with_{}_noise'.format(g_noise))
+        model_path = model_path + 'Test_with_{}_noise'.format(g_noise) +'/'
 
     np.save(model_path+ 'mu_values_noise_{}.npy'.format(g_noise), mu_y_out)
-    np.save(model_path+ 'sigma_values.npy_noise_{}'.format(g_noise), sigma_y_out)
-    np.save(model_path + 'predicted_values.npy_noise_{}'.format(g_noise), predicted_out)    
+    np.save(model_path+ 'sigma_values_noise_{}.npy'.format(g_noise), sigma_y_out)
+    np.save(model_path + 'predicted_values_noise_{}.npy'.format(g_noise), predicted_out)    
         
     textfile = open( model_path + 'Related_hyperparameters.txt','w')    
     textfile.write(' Batch Size : ' +str(batch_size))
