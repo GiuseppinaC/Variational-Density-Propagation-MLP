@@ -19,7 +19,7 @@ sys.path.insert(0,parent_dir)
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For mutliple devices (GPUs: 4, 5, 6, 7)
-os.environ["CUDA_VISIBLE_DEVICES"] = "4"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 ####################################################################################################
 #
@@ -35,7 +35,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "4"
 
 class Args():
     def __init__(self):
-        self.loadModel = 'yes'
+        self.loadModel = 'Y'
         self.cuda = True
         self.epochs     = 10
         self.batch_size = 100
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         #new part to graph
         train_acc = []
         train_counter = []
-        test_losses = []        
+        test_losses = []       
 
         for i_ep in range(epochs):
             epoch_acc = 0
@@ -173,14 +173,14 @@ if __name__ == '__main__':
         torch.save(eVINet.state_dict(), model_path + 'model.pkl')
         fig = plt.figure()
         plt.plot(train_counter, train_acc, color='blue')
-        plt.title('model accuracy_final value: {}'.format(epoch_acc ))
-        plt.legend(['Train Loss'], loc='upper right')
+        plt.title('model accuracy_final value: {}'.format(epoch_acc))
+        plt.legend(['Training Accuracy'], loc='upper right')
         plt.xlabel('epochs')
         plt.ylabel(' loss')
         fig.savefig( model_path  +'/training.png')
     else:
-        model_path ='./models/10_04_20/17_30/model.pkl'
-        eVINet.load_state_dict(torch.load(model_path))
+        model_path ='./models/10_08_20/18_18/'
+        eVINet.load_state_dict(torch.load(model_path+'model.pkl'))
 
     splits, file = os.path.split(model_path)
     if g_noise>0:
@@ -229,6 +229,7 @@ if __name__ == '__main__':
         np.save(splits + '/mu_values_noise_{}.npy'.format(g_noise), mu_y_out)
         np.save(splits + '/sigma_values.npy_noise_{}'.format(g_noise), sigma_y_out)
         np.save(splits + '/predicted_values.npy_noise_{}'.format(g_noise), predicted_out)
+    
 
     else:
 
@@ -260,27 +261,30 @@ if __name__ == '__main__':
         np.save(splits + '/sigma_values.npy', sigma_y_out)
         np.save(splits + '/predicted_values.npy', predicted_out)
 
-
-    textfile = open( model_path + 'Related_hyperparameters.txt','w')    
-    textfile.write(' Batch Size : ' +str(batch_size))
-    textfile.write('\n No Hidden Nodes : 64')
-    textfile.write('\n Output Size : ' +str(num_labels))
-    textfile.write('\n No of epochs : ' +str(epochs))
-    textfile.write('\n Learning rate : ' +str(lr))     
-    textfile.write('\n Momentum term : ' +str(mom))       
-    textfile.write("\n---------------------------------")
+        
+        
+        textfile = open( model_path + 'Related_hyperparameters.txt','w')    
+        textfile.write(' Batch Size : ' +str(batch_size))
+        textfile.write('\n No Hidden Nodes : 64')
+        textfile.write('\n Output Size : ' +str(num_labels))
+        textfile.write('\n No of epochs : ' +str(epochs))
+        textfile.write('\n Learning rate : ' +str(lr))     
+        textfile.write('\n Momentum term : ' +str(mom))       
+        textfile.write("\n---------------------------------")
     
-    if training == 't':
-        textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
-        textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) ))   
-    else:         
-        if g_noise>0:
+        if args.loadModel == '':
+            textfile.write("\n Training  Accuracy : "+ str( epoch_acc))
+            textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
             textfile.write("\n---------------------------------")
             textfile.write('\n Random Noise std: '+ str(sigma_noise )) 
-            textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) )) 
         else:
-            textfile.write("\n Averaged error : "+ str(round(100 * correct / total, 5) )) 
+            if not os.path.exists(model_path + '/Test_with_{}_noise'.format(sigma_noise)):
+                os.makedirs(model_path + '/Test_with_{}_noise'.format(sigma_noise))
+            textfile.write("\n Final Test Accuracy : "+ str(round(100 * correct / total, 5) ))   
+            textfile.write("\n---------------------------------")
+            textfile.write('\n Random Noise std: '+ str(sigma_noise ))
+        
+        textfile.write("\n---------------------------------")    
+        textfile.close()
 
-    textfile.write("\n---------------------------------")    
-    textfile.close()
     

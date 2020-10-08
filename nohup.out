@@ -1,0 +1,112 @@
+Unable to init server: Could not connect: Connection refused
+Unable to init server: Could not connect: Connection refused
+
+(Main.py:2247506): Gdk-CRITICAL **: 18:29:07.679: gdk_cursor_new_for_display: assertion 'GDK_IS_DISPLAY (display)' failed
+Hyper Parameters
+Learning Rate: 0.001
+Epochs: 10
+Batch Size: 100
+Gaussian noise std: 0.0
+ 
+Using Cuda
+ 
+100 of 10000 test images: 94.0%
+200 of 10000 test images: 95.0%
+300 of 10000 test images: 95.66667%
+400 of 10000 test images: 95.0%
+500 of 10000 test images: 94.6%
+600 of 10000 test images: 94.5%
+700 of 10000 test images: 94.28571%
+800 of 10000 test images: 94.5%
+900 of 10000 test images: 94.33333%
+1000 of 10000 test images: 94.0%
+1100 of 10000 test images: 93.81818%
+1200 of 10000 test images: 93.58333%
+1300 of 10000 test images: 93.15385%
+1400 of 10000 test images: 93.14286%
+1500 of 10000 test images: 93.06667%
+1600 of 10000 test images: 93.0625%
+1700 of 10000 test images: 93.29412%
+1800 of 10000 test images: 93.27778%
+1900 of 10000 test images: 93.36842%
+2000 of 10000 test images: 93.15%
+2100 of 10000 test images: 92.85714%
+2200 of 10000 test images: 92.68182%
+2300 of 10000 test images: 92.73913%
+2400 of 10000 test images: 92.66667%
+2500 of 10000 test images: 92.56%
+2600 of 10000 test images: 92.57692%
+2700 of 10000 test images: 92.59259%
+2800 of 10000 test images: 92.57143%
+2900 of 10000 test images: 92.62069%
+3000 of 10000 test images: 92.6%
+3100 of 10000 test images: 92.67742%
+3200 of 10000 test images: 92.65625%
+3300 of 10000 test images: 92.69697%
+3400 of 10000 test images: 92.79412%
+3500 of 10000 test images: 92.74286%
+3600 of 10000 test images: 92.63889%
+3700 of 10000 test images: 92.78378%
+3800 of 10000 test images: 92.63158%
+3900 of 10000 test images: 92.64103%
+4000 of 10000 test images: 92.625%
+4100 of 10000 test images: 92.63415%
+4200 of 10000 test images: 92.71429%
+4300 of 10000 test images: 92.74419%
+4400 of 10000 test images: 92.75%
+4500 of 10000 test images: 92.77778%
+4600 of 10000 test images: 92.82609%
+4700 of 10000 test images: 92.87234%
+4800 of 10000 test images: 92.97917%
+4900 of 10000 test images: 92.91837%
+5000 of 10000 test images: 92.9%
+5100 of 10000 test images: 92.96078%
+5200 of 10000 test images: 93.05769%
+5300 of 10000 test images: 93.18868%
+5400 of 10000 test images: 93.2963%
+5500 of 10000 test images: 93.38182%
+5600 of 10000 test images: 93.44643%
+5700 of 10000 test images: 93.38596%
+5800 of 10000 test images: 93.41379%
+5900 of 10000 test images: 93.44068%
+6000 of 10000 test images: 93.26667%
+6100 of 10000 test images: 93.13115%
+6200 of 10000 test images: 93.17742%
+6300 of 10000 test images: 93.26984%
+6400 of 10000 test images: 93.26562%
+6500 of 10000 test images: 93.33846%
+6600 of 10000 test images: 93.28788%
+6700 of 10000 test images: 93.31343%
+6800 of 10000 test images: 93.32353%
+6900 of 10000 test images: 93.36232%
+7000 of 10000 test images: 93.41429%
+7100 of 10000 test images: 93.49296%
+7200 of 10000 test images: 93.58333%
+7300 of 10000 test images: 93.63014%
+7400 of 10000 test images: 93.67568%
+7500 of 10000 test images: 93.72%
+7600 of 10000 test images: 93.78947%
+7700 of 10000 test images: 93.83117%
+7800 of 10000 test images: 93.87179%
+7900 of 10000 test images: 93.78481%
+8000 of 10000 test images: 93.825%
+8100 of 10000 test images: 93.85185%
+8200 of 10000 test images: 93.87805%
+8300 of 10000 test images: 93.90361%
+8400 of 10000 test images: 93.92857%
+8500 of 10000 test images: 93.94118%
+8600 of 10000 test images: 93.96512%
+8700 of 10000 test images: 94.02299%
+8800 of 10000 test images: 94.09091%
+8900 of 10000 test images: 94.1573%
+9000 of 10000 test images: 94.22222%
+9100 of 10000 test images: 94.20879%
+9200 of 10000 test images: 94.25%
+9300 of 10000 test images: 94.29032%
+9400 of 10000 test images: 94.31915%
+9500 of 10000 test images: 94.35789%
+9600 of 10000 test images: 94.39583%
+9700 of 10000 test images: 94.39175%
+9800 of 10000 test images: 94.31633%
+9900 of 10000 test images: 94.29293%
+10000 of 10000 test images: 94.28%
