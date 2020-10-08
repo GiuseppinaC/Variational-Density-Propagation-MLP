@@ -1,0 +1,12 @@
+ Batch Size : 100
+ No Hidden Nodes : 64
+ Output Size : 10
+ No of epochs : 10
+ Learning rate : 0.001
+ Momentum term : 0.9
+---------------------------------
+ Training  Accuracy : 0.956
+ Final Test Accuracy : 94.51
+---------------------------------
+ Random Noise std: 0.0
+---------------------------------
